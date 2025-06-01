@@ -41,6 +41,11 @@ def get_timestamp_from_filename(filename):
             dt = datetime.strptime(match4.group(2), "%Y%m%d")
             return int(dt.timestamp())
 
+        match5 = re.search(r"-?(\d{8})(?:-\d+)?", filename)
+        if match5:
+            dt = datetime.strptime(match5.group(1), "%Y%m%d")
+            return int(dt.timestamp())
+
     except:
         return None
     return None
