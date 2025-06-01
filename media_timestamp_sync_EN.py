@@ -6,7 +6,7 @@ from datetime import datetime
 from PIL import Image
 import piexif
 
-SUPPORTED_PHOTOS = [".jpg", ".jpeg", ".png", ".heic"]
+SUPPORTED_PHOTOS = [".jpg", ".jpeg", ".png", ".heic", ".webp"]
 SUPPORTED_VIDEOS = [".mp4", ".mov"]
 
 def get_timestamp_from_json(json_path):
