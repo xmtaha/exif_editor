@@ -23,19 +23,28 @@ def get_timestamp_from_filename(filename):
         if match1:
             dt = datetime.strptime(match1.group(0), "%Y.%m.%d %H.%M.%S")
             return int(dt.timestamp())
+
         match2 = re.search(r"(\d{8})[_-](\d{6})", filename)
         if match2:
             dt_str = match2.group(1) + match2.group(2)
             dt = datetime.strptime(dt_str, "%Y%m%d%H%M%S")
             return int(dt.timestamp())
+
         match3 = re.search(r"(\d{4})-(\d{2})-(\d{2})-(\d{2})-(\d{2})-(\d{2})", filename)
         if match3:
             dt_str = f"{match3.group(1)}-{match3.group(2)}-{match3.group(3)} {match3.group(4)}:{match3.group(5)}:{match3.group(6)}"
             dt = datetime.strptime(dt_str, "%Y-%m-%d %H:%M:%S")
             return int(dt.timestamp())
+
+        match4 = re.search(r"(VID|IMG)[-_](\d{8})[-_]", filename)
+        if match4:
+            dt = datetime.strptime(match4.group(2), "%Y%m%d")
+            return int(dt.timestamp())
+
     except:
         return None
     return None
+
 
 def update_exif_date(image_path, timestamp):
     try:
