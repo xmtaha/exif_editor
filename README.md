@@ -49,7 +49,7 @@ google-photos-exif-editor/
 1. **Clone the repository:**
    ```sh
    git clone https://github.com/xmtaha/google-photos-exif-editor
-   cd exif_editor
+   cd google-photos-exif-editor
    ```
 2. **Install dependencies:**
    ```sh
